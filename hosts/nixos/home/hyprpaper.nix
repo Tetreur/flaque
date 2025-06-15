@@ -1,12 +1,21 @@
 {
   pkgs,
   config,
-  lib,
-  host,
   ...
 }: {
-  home.file.".config/hypr/hyprpaper.conf".text = ''
-    preload = /home/tet/wallpapers/meadow.jpg
-    wallpaper = , /home/tet/wallpapers/meadow.jpg
-  '';
+  services.hyprpaper = {
+    enable = true;
+    settings = {
+      preload = [
+        "${config.home.homeDirectory}/.config/wallpapers/meadow.jpg"
+      ];
+
+      wallpaper = " , ${config.home.homeDirectory}/.config/wallpapers/meadow.jpg";
+    };
+  };
+
+  home.file.".config/wallpapers" = {
+    source = ./wallpapers;
+    recursive = true;
+  };
  }
