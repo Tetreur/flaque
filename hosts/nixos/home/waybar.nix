@@ -19,19 +19,18 @@ in
         /* ......................................... */
         /* --- 👍 designed by https://github.com/Krautt  👍 --- */
 
-        *{
+        * {
         	font-family: "GeistMono Nerd Font";
         	font-weight: bold;
         	min-height: 0;
         	/* set font-size to 100% if font scaling is set to 1.00 using nwg-look */
-        	font-size: 101%;
+        	font-size: 100%;
         	font-feature-settings: '"zero", "ss01", "ss02", "ss03", "ss04", "ss05", "cv31"';
         	padding: 1px;
         }
 
         window#waybar {
         	background:transparent;
-        	border-radius: 1px;
         	color: whitesmoke;
         }
 
