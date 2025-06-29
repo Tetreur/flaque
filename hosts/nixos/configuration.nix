@@ -145,6 +145,7 @@
 
      # Utils
      git
+     gh
      tlrc
      lshw
      btop
