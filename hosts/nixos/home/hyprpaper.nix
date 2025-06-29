@@ -10,7 +10,7 @@
         "${config.home.homeDirectory}/.config/wallpapers/meadow.jpg"
       ];
 
-      wallpaper = " , ${config.home.homeDirectory}/.config/wallpapers/meadow.jpg";
+      wallpaper = [ " , ${config.home.homeDirectory}/.config/wallpapers/meadow.jpg" ];
     };
   };
 
