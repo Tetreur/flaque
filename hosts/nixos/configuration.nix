@@ -47,6 +47,9 @@
   # Configure console keymap
   console.keyMap = "fr";
 
+  # Audio
+  # hardware.alsa.enable = true;
+
   # Nvidia
   hardware.graphics = {
     enable = true;
@@ -63,23 +66,23 @@
       # Nvidia power management. Experimental, and can cause sleep/suspend to fail.
       # Enable this if you have graphical corruption issues or application crashes after waking up from sleep.
       # This fixes it by saving the entire VRAM memory to /tmp/ instead of just the bare essentials.
-    powerManagement.enable = false;
+      powerManagement.enable = false;
 
-    # Fine-grained power management. Turns off GPU when not in use.
-    # Experimental and only works on modern Nvidia GPUs (Turing or newer).
-    # powerManagement.finegrained = true;
-    # prime.offload.enable = true;
+      # Fine-grained power management. Turns off GPU when not in use.
+      # Experimental and only works on modern Nvidia GPUs (Turing or newer).
+      powerManagement.finegrained = false;
+      # prime.offload.enable = true;
 
-    # Use the NVidia open source kernel module (not nouveau).
-    # Support is limited to the Turing and later arch.
-    open = true;
+      # Use the NVidia open source kernel module (not nouveau).
+      # Support is limited to the Turing and later arch.
+      open = true;
 
-    # Enable the nvidia settings menu (nvidia-settings).
-    nvidiaSettings = true;
+      # Enable the nvidia settings menu (nvidia-settings).
+      nvidiaSettings = true;
 
-    # Optionally, select the approprate driver version for specific GPU.
-    # package = config.boot.kernelPackages.nvidiaPackages.stable;
-  };
+      # Optionally, select the approprate driver version for specific GPU.
+      # package = config.boot.kernelPackages.nvidiaPackages.stable;
+    };
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -112,8 +115,7 @@
   };
 
   environment.systemPackages = with pkgs; [
-	wezterm
-
+    wezterm
      # Waybar
      waybar
      power-profiles-daemon
@@ -159,7 +161,8 @@
      nixd
      nil
 
-     # Sound
+     # Sound & Audio
+     pavucontrol
      spotify
 
      # Comms
@@ -171,27 +174,33 @@
      home-manager
   ];
 
+  # --- Keyring for login persistence ---
+  # 1. Enable the secret service daemon
+  services.gnome.gnome-keyring.enable = true;
+  # Automatically unlock the keyring with login password
+  security.pam.services.login.enableGnomeKeyring = true;
+
   # Steam
   programs = {
   	steam = {
-		enable = true;
-		gamescopeSession.enable = false;
-		remotePlay.openFirewall = false;
-		dedicatedServer.openFirewall = false;
-		extraCompatPackages = [pkgs.proton-ge-bin pkgs.vkd3d-proton];
-	};
+    		enable = true;
+    		gamescopeSession.enable = false;
+    		remotePlay.openFirewall = false;
+    		dedicatedServer.openFirewall = false;
+    		extraCompatPackages = [pkgs.proton-ge-bin pkgs.vkd3d-proton];
+  	};
   	gamescope = {
-		enable = true;
-		capSysNice = true;
-		args = [
-			"--rt"
-			"--expose-wayland"
-		];
-	};
+    		enable = true;
+    		capSysNice = true;
+    		args = [
+    			"--rt"
+    			"--expose-wayland"
+    		];
+  	};
   	gamemode.enable = true;
   };
 
-    # Desktop portals
+  # Desktop portals
   xdg.portal.enable = true;
   xdg.portal.extraPortals = [pkgs.xdg-desktop-portal-gtk];
 
@@ -230,11 +239,11 @@
 
   # Git
   programs.git = {
-	enable = true;
-	config.user = {
-		name = "Tetreur";
-		email = "tetreur@gmail.com";
-	};
+    enable = true;
+    config.user = {
+   	name = "Tetreur";
+   	email = "tetreur@gmail.com";
+    };
   };
 
   services = {
