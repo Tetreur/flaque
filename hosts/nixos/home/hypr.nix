@@ -177,8 +177,8 @@ misc {
 
 # https://wiki.hyprland.org/Configuring/Variables/#input
 input {
-    kb_layout = fr
-    kb_variant = nodeadkeys
+    kb_layout = us
+    kb_variant = altgr-intl
     kb_model = pc104
     kb_options =
     kb_rules =

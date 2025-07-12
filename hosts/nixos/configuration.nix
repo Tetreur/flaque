@@ -38,14 +38,17 @@
     LC_TIME = "fr_FR.UTF-8";
   };
 
+  # Enable udisk2 to manage removable media
+  services.udisks2.enable = true;
+
   # Configure keymap in X11
   services.xserver.xkb = {
-    layout = "fr";
-    variant = "nodeadkeys";
+    layout = "us";
+    variant = "altgr-intl";
   };
 
   # Configure console keymap
-  console.keyMap = "fr";
+  console.keyMap = "us";
 
   # Audio
   # security.rtkit.enable = true;
@@ -81,6 +84,7 @@
 
   # Load nvidia driver for Xorg & Wayland
   services.xserver.videoDrivers = ["nvidia"];
+
   hardware = {
     nvidia = {
       # Modesetting is required.
