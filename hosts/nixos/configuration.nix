@@ -165,6 +165,9 @@
      fishPlugins.grc
      grc
 
+     # Languages
+     zig
+
      # Browsers
      librewolf
      chromium
@@ -198,6 +201,7 @@
      # Gaming, ProtonGE (for steam)
      protonup
 
+     # Home Manger
      home-manager
   ];
 
