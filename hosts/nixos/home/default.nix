@@ -1,4 +1,5 @@
 {
+  inputs,
   pkgs,
   ...
 }: {
@@ -45,7 +46,6 @@
     tokei
 
     # PROMPT
-    # starship
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -114,10 +114,5 @@
   programs = {
     # Let Home Manager install and manage itself.
     home-manager.enable = true;
-
-    /* starship = {
-      enable = true;
-      package = pkgs.starship;
-    }; */
   };
 }

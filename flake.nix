@@ -1,12 +1,8 @@
 {
-	description = "Help me jesus";
+  description = "Help me jesus";
 
-  	inputs = {
-    		nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
-    		home-manager = {
-			url = "github:nix-community/home-manager";
-			inputs.nixpkgs.follows = "nixpkgs";
-		};
+  inputs = {
+    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
 
 		alejandra = {
 			url = "github:kamadorueda/alejandra/3.0.0";

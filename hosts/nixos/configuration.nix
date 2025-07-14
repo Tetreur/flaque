@@ -232,9 +232,10 @@
   };
 
   # Desktop portals
-  xdg.portal.enable = true;
-  xdg.portal.extraPortals = [pkgs.xdg-desktop-portal-gtk];
-
+  xdg.portal = {
+    enable = true;
+    extraPortals = [pkgs.xdg-desktop-portal-gtk];
+};
 
   environment.sessionVariables = {
     # Test
@@ -256,14 +257,6 @@
     # Hint electron app to use wayland
     NIXOS_OZONE_WL = "1";
   };
-
-
-  hardware = {
-    # NVIDIA
-
-  };
-
-
 
   # Change default shell
   programs.fish.enable = true;
