@@ -8,9 +8,21 @@
 			url = "github:kamadorueda/alejandra/3.0.0";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
-};
 
-outputs = { self, nixpkgs, alejandra, ... } @ inputs: {
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    hyprland.url = "github:hyprwm/Hyprland";
+    hyprland.inputs.nixpkgs.follows = "nixpkgs";
+
+    hyprland-plugins = {
+      url = "github:hyprwm/hyprland-plugins";
+    };
+  };
+
+  outputs = { self, nixpkgs, alejandra, home-manager, hyprland, ... } @inputs: {
 		nixosConfigurations.nixos = nixpkgs.lib.nixosSystem rec {
 			system = "x86_64-linux";
 			specialArgs = { inherit inputs; };
@@ -19,8 +31,8 @@ outputs = { self, nixpkgs, alejandra, ... } @ inputs: {
 					environment.systemPackages = [alejandra.defaultPackage.${system}];
 				}
 				./hosts/nixos/configuration.nix
-				inputs.home-manager.nixosModules.default
+				home-manager.nixosModules.default
 			];
 		};
-  	};
+  };
 }
