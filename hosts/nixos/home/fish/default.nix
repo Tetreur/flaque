@@ -25,21 +25,15 @@
     enable = true;
   };
 
-  # Main config.fish
+  # Custom abbrevations
   home.file.".config/fish/conf.d/myabbrs.fish" = {
     source = ./myabbrs.fish;
     enable = true;
   };
 
-  # Main config.fish
+  # PromptS
   home.file.".config/fish/functions/fish_prompt.fish" = {
     source = ./fish_prompt.fish;
-    enable = true;
-  };
-
-  # Main config.fish
-  home.file.".config/fish/fish_variables" = {
-    source = ./fish_variables;
     enable = true;
   };
 }
