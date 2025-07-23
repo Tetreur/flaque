@@ -41,9 +41,12 @@
     git
 
     # CLI UTILS
-    # tldr
+    bunbun
     tree
     tokei
+
+    # DEV
+    bun
 
     # PROMPT
 
