@@ -5,6 +5,7 @@
 }: {
   imports = [
     # Enable &/ Configure Programs
+    ./fish
     # ./mako.nix
     # ./neovim.nix
     # ./starship
