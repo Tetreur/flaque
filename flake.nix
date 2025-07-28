@@ -20,16 +20,22 @@
     hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";
     };
-
-    deno-latest = {
-      url = "github:denoland/deno";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs = { self, nixpkgs, alejandra, home-manager, ... } @inputs: {
     overlays.default = (final: prev: {
-      deno = inputs.deno-latest.packages.${prev.system}.default;
+      deno = prev.deno.overrideAttrs (oldAttrs: {
+        version = "main";
+
+        src = prev.fetchFromGitHub {
+          owner = "denoland";
+          repo = "deno";
+          rev = "main";
+          sha256 = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
+        };
+
+        cargoSha256 = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
+      });
     });
 
 		nixosConfigurations.nixos = nixpkgs.lib.nixosSystem rec {
