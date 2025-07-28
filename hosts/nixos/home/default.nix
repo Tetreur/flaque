@@ -48,6 +48,7 @@
 
     # DEV
     bun
+    # deno
 
     # PROMPT
 
