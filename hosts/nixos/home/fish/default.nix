@@ -11,7 +11,7 @@
   * ├── completions
   * ├── conf.d
   * │   ├── myabbrs.fish
-    │   └── fnm.fish
+  * │   └── fnm.fish
   * ├── config.fish
   * ├── fish_variables
   * └── functions
