@@ -1,6 +1,4 @@
 {
-  inputs,
-  pkgs,
   ...
 }:
 {
@@ -12,7 +10,8 @@
   * .
   * ├── completions
   * ├── conf.d
-  * │   └── myabbrs.fish
+  * │   ├── myabbrs.fish
+    │   └── fnm.fish
   * ├── config.fish
   * ├── fish_variables
   * └── functions
@@ -31,7 +30,12 @@
     enable = true;
   };
 
-  # PromptS
+  home.file.".config/fish/conf.d/fnm.fish" = {
+    source = ./fnm.fish;
+    enable = true;
+  };
+
+  # Prompt
   home.file.".config/fish/functions/fish_prompt.fish" = {
     source = ./fish_prompt.fish;
     enable = true;

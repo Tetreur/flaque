@@ -48,7 +48,10 @@
 
     # DEV
     bun
-    # deno
+    deno
+
+    # JS toolkit
+    fnm
 
     # PROMPT
 

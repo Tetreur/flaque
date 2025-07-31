@@ -23,26 +23,10 @@
   };
 
   outputs = { self, nixpkgs, alejandra, home-manager, ... } @inputs: {
-    overlays.default = (final: prev: {
-      deno = prev.deno.overrideAttrs (oldAttrs: {
-        version = "main";
-
-        src = prev.fetchFromGitHub {
-          owner = "denoland";
-          repo = "deno";
-          rev = "main";
-          sha256 = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
-        };
-
-        cargoSha256 = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
-      });
-    });
-
 		nixosConfigurations.nixos = nixpkgs.lib.nixosSystem rec {
 			system = "x86_64-linux";
 			specialArgs = { inherit inputs; };
 			modules = [
-			  { nixpkgs.overlays = [ self.overlays.default ]; }
 				{ environment.systemPackages = [alejandra.defaultPackage.${system}]; }
 				./hosts/nixos/configuration.nix
 				home-manager.nixosModules.default
