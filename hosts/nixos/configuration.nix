@@ -205,6 +205,9 @@
      home-manager
   ];
 
+  # Docker
+  virtualisation.docker.enable = true;
+
   # --- Keyring for login persistence ---
   # 1. Enable the secret service daemon
   services.gnome.gnome-keyring.enable = true;

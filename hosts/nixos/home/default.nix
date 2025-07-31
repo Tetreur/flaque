@@ -49,9 +49,10 @@
     # DEV
     bun
     deno
+    docker
 
     # JS toolkit
-    fnm
+    nodejs_22
 
     # PROMPT
 

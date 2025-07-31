@@ -30,11 +30,6 @@
     enable = true;
   };
 
-  home.file.".config/fish/conf.d/fnm.fish" = {
-    source = ./fnm.fish;
-    enable = true;
-  };
-
   # Prompt
   home.file.".config/fish/functions/fish_prompt.fish" = {
     source = ./fish_prompt.fish;
