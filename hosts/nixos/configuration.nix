@@ -116,7 +116,11 @@
   users.users.tet = {
     isNormalUser = true;
     description = "tet";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "docker"
+    ];
     packages =  [];
     shell = pkgs.fish;
   };
@@ -213,6 +217,9 @@
   services.gnome.gnome-keyring.enable = true;
   # Automatically unlock the keyring with login password
   security.pam.services.login.enableGnomeKeyring = true;
+
+  # Tailscale
+  services.tailscale.enable = true;
 
   # Steam
   programs = {

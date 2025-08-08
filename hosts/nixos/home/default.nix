@@ -1,5 +1,4 @@
 {
-  inputs,
   pkgs,
   ...
 }: {
@@ -40,6 +39,7 @@
 
     # GIT
     git
+    gh
 
     # CLI UTILS
     bunbun
@@ -50,9 +50,12 @@
     bun
     deno
     docker
+    docker-compose
+    google-cloud-sdk
 
     # JS toolkit
     nodejs_22
+    pnpm
 
     # PROMPT
 
