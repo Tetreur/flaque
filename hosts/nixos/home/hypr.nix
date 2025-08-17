@@ -1,8 +1,4 @@
 {
-  pkgs,
-  config,
-  lib,
-  host,
   ...
 }: {
   home.file.".config/hypr/hyprland.conf".text = ''

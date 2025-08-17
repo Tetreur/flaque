@@ -1,13 +1,12 @@
 {
   pkgs,
-  config,
-  lib,
-  hosts,
   ...
-}: let
-  betterTransition = "all 0.3s cubic-bezier(.55,-0.068,.48,1.682)";
-in
-  with lib; {
+}:
+# let
+# betterTransition = "all 0.3s cubic-bezier(.55,-0.068,.48,1.682)";
+# in
+# with lib;
+  {
     # Config & Theme Waybar
     programs.waybar = {
       enable = true;
