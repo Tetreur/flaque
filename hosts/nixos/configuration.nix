@@ -50,32 +50,6 @@
   # Configure console keymap
   console.keyMap = "us";
 
-  # Audio
-  # security.rtkit.enable = true;
-  # services.pipewire = {
-  #   enable = true;
-  #   alsa.enable = true;
-  #   alsa.support32Bit = true;
-  #   pulse.enable = true;
-
-  #   # This section explicitly configures audio properties
-  #   # To prevent conflicts that can cause static.inherit
-  #   extraConfig.pipewire."99-custom-audio-config" = {
-  #     # Add your custom audio configuration here
-  #     "context.properties" = {
-  #       # Set a common default sample rate. 48000 is a safe bet
-  #       "default.clock.rate" = 48000;
-  #       "default.clock.allowed-rates" = [44100 48000]; # Common rates
-
-  #       # Adjust buffer size (quantum). Static can happen if this is too low.inherit
-  #       # 1024 is a good default. If you still get pops, try 2048
-  #       "default.clock.quantum" = 1024;
-  #       "default.clock.min-quantum" = 32;
-  #       "default.clock.max-quantum" = 2048;
-  #     };
-  #   };
-  # };
-
   # Nvidia
   hardware.graphics = {
     enable = true;
@@ -158,6 +132,11 @@
      zed-editor
      neovim
      vim
+
+     # Audio
+     pavucontrol
+     bluez
+     bluez-tools
 
      # Fish shell plugins
      fishPlugins.done
@@ -279,6 +258,32 @@
    	email = "tetreur@gmail.com";
     };
   };
+
+   # Audio
+  hardware.pulseaudio.enable = false; # Use Pipewire, the modern sound subsystem
+
+  security.rtkit.enable = true; # Enable RealtimeKit for audio purposes
+
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+     # Uncomment the following line if you want to use JACK applications
+     jack.enable = true;
+  };
+
+  # Bluetooth
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = true;
+    settings = {
+      General = {
+        Experimental = true;
+      };
+    };
+  };
+  services.blueman.enable = true;
 
   services = {
     power-profiles-daemon.enable = true;
