@@ -50,6 +50,8 @@
     docker-compose
     google-cloud-sdk
 
+    go
+
     # JS toolkit
     nodejs_22
     pnpm
