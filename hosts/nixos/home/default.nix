@@ -1,7 +1,4 @@
-{
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   imports = [
     # Enable &/ Configure Programs
     ./fish
@@ -81,7 +78,7 @@
   ];
 
   fonts = {
-  	fontconfig.enable = true;
+    fontconfig.enable = true;
   };
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage

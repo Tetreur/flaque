@@ -1,7 +1,4 @@
-{
-  config,
-  ...
-}: {
+{config, ...}: {
   services.hyprpaper = {
     enable = true;
     settings = {
@@ -9,7 +6,7 @@
         "${config.home.homeDirectory}/.config/wallpapers/meadow.jpg"
       ];
 
-      wallpaper = [ " , ${config.home.homeDirectory}/.config/wallpapers/meadow.jpg" ];
+      wallpaper = [" , ${config.home.homeDirectory}/.config/wallpapers/meadow.jpg"];
     };
   };
 
@@ -17,4 +14,4 @@
     source = ./wallpapers;
     recursive = true;
   };
- }
+}

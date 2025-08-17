@@ -1,6 +1,9 @@
- { inputs, pkgs, ... }: {
-
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+{
+  inputs,
+  pkgs,
+  ...
+}: {
+  nix.settings.experimental-features = ["nix-command" "flakes"];
 
   imports = [
     ./hardware-configuration.nix
@@ -95,16 +98,16 @@
       "wheel"
       "docker"
     ];
-    packages =  [];
+    packages = [];
     shell = pkgs.fish;
   };
 
-	home-manager = {
-		extraSpecialArgs = { inherit inputs; };
-		users = {
-			"tet" = import ./home;
-		};
-	};
+  home-manager = {
+    extraSpecialArgs = {inherit inputs;};
+    users = {
+      "tet" = import ./home;
+    };
+  };
 
   # Enable automatic login for the user.
   services.getty.autologinUser = "tet";
@@ -121,71 +124,71 @@
 
   environment.systemPackages = with pkgs; [
     wezterm
-     # Waybar
-     waybar
-     power-profiles-daemon
-     wget
-     rofi-wayland
-     kitty
+    # Waybar
+    waybar
+    power-profiles-daemon
+    wget
+    rofi-wayland
+    kitty
 
-     # Editors
-     zed-editor
-     neovim
-     vim
+    # Editors
+    zed-editor
+    neovim
+    vim
 
-     # Audio
-     pavucontrol
-     bluez
-     bluez-tools
+    # Audio
+    pavucontrol
+    bluez
+    bluez-tools
 
-     # Fish shell plugins
-     fishPlugins.done
-     fishPlugins.fzf-fish
-     fishPlugins.forgit
-     fishPlugins.git-abbr
-     fishPlugins.hydro
-     fzf
-     fishPlugins.grc
-     grc
+    # Fish shell plugins
+    fishPlugins.done
+    fishPlugins.fzf-fish
+    fishPlugins.forgit
+    fishPlugins.git-abbr
+    fishPlugins.hydro
+    fzf
+    fishPlugins.grc
+    grc
 
-     # Languages
-     zig
+    # Languages
+    zig
 
-     # Browsers
-     librewolf
-     chromium
+    # Browsers
+    librewolf
+    chromium
 
-     # Explorer
-     kdePackages.dolphin
+    # Explorer
+    kdePackages.dolphin
 
-     # Utils
-     git
-     gh
-     tlrc
-     lshw
-     btop
-     nvtopPackages.nvidia
-     nvtopPackages.amd
+    # Utils
+    git
+    gh
+    tlrc
+    lshw
+    btop
+    nvtopPackages.nvidia
+    nvtopPackages.amd
 
-     # Keyboard
-     qmk
+    # Keyboard
+    qmk
 
-     # Language server
-     nixd
-     nil
+    # Language server
+    nixd
+    nil
 
-     # Sound & Audio
-     # pavucontrol
-     spotify
+    # Sound & Audio
+    # pavucontrol
+    spotify
 
-     # Comms
-     discord
+    # Comms
+    discord
 
-     # Gaming, ProtonGE (for steam)
-     protonup
+    # Gaming, ProtonGE (for steam)
+    protonup
 
-     # Home Manger
-     home-manager
+    # Home Manger
+    home-manager
   ];
 
   # Docker
@@ -202,29 +205,29 @@
 
   # Steam
   programs = {
-  	steam = {
-    		enable = true;
-    		gamescopeSession.enable = false;
-    		remotePlay.openFirewall = false;
-    		dedicatedServer.openFirewall = false;
-    		extraCompatPackages = [pkgs.proton-ge-bin pkgs.vkd3d-proton];
-  	};
-  	gamescope = {
-    		enable = true;
-    		capSysNice = true;
-    		args = [
-    			"--rt"
-    			"--expose-wayland"
-    		];
-  	};
-  	gamemode.enable = true;
+    steam = {
+      enable = true;
+      gamescopeSession.enable = false;
+      remotePlay.openFirewall = false;
+      dedicatedServer.openFirewall = false;
+      extraCompatPackages = [pkgs.proton-ge-bin pkgs.vkd3d-proton];
+    };
+    gamescope = {
+      enable = true;
+      capSysNice = true;
+      args = [
+        "--rt"
+        "--expose-wayland"
+      ];
+    };
+    gamemode.enable = true;
   };
 
   # Desktop portals
   xdg.portal = {
     enable = true;
     extraPortals = [pkgs.xdg-desktop-portal-gtk];
-};
+  };
 
   environment.sessionVariables = {
     # Test
@@ -254,12 +257,12 @@
   programs.git = {
     enable = true;
     config.user = {
-   	name = "Tetreur";
-   	email = "tetreur@gmail.com";
+      name = "Tetreur";
+      email = "tetreur@gmail.com";
     };
   };
 
-   # Audio
+  # Audio
   hardware.pulseaudio.enable = false; # Use Pipewire, the modern sound subsystem
 
   security.rtkit.enable = true; # Enable RealtimeKit for audio purposes
@@ -269,8 +272,8 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
-     # Uncomment the following line if you want to use JACK applications
-     jack.enable = true;
+    # Uncomment the following line if you want to use JACK applications
+    jack.enable = true;
   };
 
   # Bluetooth

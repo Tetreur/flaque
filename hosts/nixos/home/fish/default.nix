@@ -1,7 +1,4 @@
-{
-  ...
-}:
-{
+{...}: {
   programs.fish = {
     loginShellInit = true;
   };
