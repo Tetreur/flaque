@@ -141,6 +141,9 @@
     bluez
     bluez-tools
 
+    # Network
+    dig
+
     # Fish shell plugins
     fishPlugins.done
     fishPlugins.fzf-fish
@@ -283,6 +286,10 @@
     settings = {
       General = {
         Experimental = true;
+        Privacy = "device";
+        JustWorksRepairing = "always";
+        Class = "0x000100";
+        FastConnectable = "true";
       };
     };
   };
