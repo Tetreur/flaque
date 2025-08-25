@@ -17,8 +17,11 @@
     ################
 
     # See https://wiki.hyprland.org/Configuring/Monitors/
-    monitor = DP-1, 2560x1440, 1920x0, 1
     monitor = HDMI-A-1, 1920x1080, 0x0, 1
+    monitor = DP-1,     2560x1440, 1920x0,  1
+
+    # workspace = 1, monitor:DP-1,     default:true
+    # workspace = 2, monitor:HDMI-A-1, default:true
 
 
     ###################
