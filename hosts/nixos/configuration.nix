@@ -169,6 +169,7 @@
     gh
     tlrc
     lshw
+    bat
     btop
     nvtopPackages.nvidia
     nvtopPackages.amd
