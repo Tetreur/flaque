@@ -42,18 +42,20 @@
     bunbun
     tree
     tokei
+    openssl
 
-    # DEV
-    bun
-    deno
+    # GENERIC TOOLS-KIT
     docker
     docker-compose
     google-cloud-sdk
 
+    # GO
     go
 
     # JS toolkit
+    deno
     nodejs_22
+    bun
     pnpm
 
     # PROMPT
