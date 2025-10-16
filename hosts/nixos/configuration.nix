@@ -183,7 +183,6 @@
 
     # Sound & Audio
     # pavucontrol
-    spotify
 
     # Comms
     discord
