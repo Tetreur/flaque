@@ -58,7 +58,9 @@
     bun
     pnpm
 
-    # PROMPT
+    # Sound & Audio
+    tidal-dl
+    tidal-hifi
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
