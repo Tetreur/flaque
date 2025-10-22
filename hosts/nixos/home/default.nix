@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   imports = [
     # Enable &/ Configure Programs
     ./fish
@@ -13,6 +14,8 @@
     ./hyprpaper.nix
     # ./zsh.nix
   ];
+
+  nixpkgs.config.allowUnfree = true;
 
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -72,7 +75,7 @@
     nerd-fonts.jetbrains-mono
 
     # # Import Scripts
-    (import ./../../../scripts/rofi-launcher.nix {inherit pkgs;})
+    (import ./../../../scripts/rofi-launcher.nix { inherit pkgs; })
     # (import ./../../../scripts/iommu-groups.nix {inherit pkgs;})
 
     # # You can also create simple shell scripts directly inside your
