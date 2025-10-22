@@ -101,6 +101,11 @@
       "networkmanager"
       "wheel"
       "docker"
+      # Users in the scanner group will gain access to the scanner
+      # or the lp group if it’s also a printer.
+      #z https://nixos.wiki/wiki/Scanners
+      "scanner"
+      "lp"
     ];
     packages = [ ];
     shell = pkgs.fish;
@@ -189,8 +194,8 @@
     nixd
     nil
 
-    # Sound & Audio
-    # pavucontrol
+    # Sanner gui
+    scanservjs
 
     # Comms
     discord
