@@ -2,8 +2,12 @@
   inputs,
   pkgs,
   ...
-}: {
-  nix.settings.experimental-features = ["nix-command" "flakes"];
+}:
+{
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   imports = [
     ./hardware-configuration.nix
@@ -60,7 +64,7 @@
   };
 
   # Load nvidia driver for Xorg & Wayland
-  services.xserver.videoDrivers = ["nvidia"];
+  services.xserver.videoDrivers = [ "nvidia" ];
 
   hardware = {
     nvidia = {
@@ -98,16 +102,20 @@
       "wheel"
       "docker"
     ];
-    packages = [];
+    packages = [ ];
     shell = pkgs.fish;
   };
 
   home-manager = {
-    extraSpecialArgs = {inherit inputs;};
+    extraSpecialArgs = { inherit inputs; };
     users = {
       "tet" = import ./home;
     };
   };
+
+  # Print & Scan
+  services.printing.enable = true;
+  hardware.sane.enable = true;
 
   # Enable automatic login for the user.
   services.getty.autologinUser = "tet";
@@ -213,7 +221,10 @@
       gamescopeSession.enable = false;
       remotePlay.openFirewall = false;
       dedicatedServer.openFirewall = false;
-      extraCompatPackages = [pkgs.proton-ge-bin pkgs.vkd3d-proton];
+      extraCompatPackages = [
+        pkgs.proton-ge-bin
+        pkgs.vkd3d-proton
+      ];
     };
     gamescope = {
       enable = true;
@@ -229,7 +240,7 @@
   # Desktop portals
   xdg.portal = {
     enable = true;
-    extraPortals = [pkgs.xdg-desktop-portal-gtk];
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   };
 
   environment.sessionVariables = {
