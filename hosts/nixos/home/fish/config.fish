@@ -20,6 +20,16 @@ set -gx MANROFFOPT -c
 abbr -a --position anywhere -- --help '--help | 'bat' -plhelp'
 abbr -a --position anywhere -- -h '-h | 'bat' -plhelp'
 
+# Git prompt
+set -g __fish_git_prompt_show_informative_status    1       # ahead, behing, deverged
+set -g __fish_git_prompt_showdirtystate             1       # has uncommitted changes
+set -g __fish_git_prompt_showuntrackedfiles         1       # Show untracked files
+set -g __fish_git_prompt_showupstream               auto    # Summarize diff between HEAD & upstream
+set -g __fish_git_prompt_showstashstate             1       # Stash status display
+set -g __fish_git_prompt_showcolorhint              1
+
+
+# prisma_engines
 set -gx PRISMA_QUERY_ENGINE_LIBRARY "$HOME/Projects/prisma_engines/libquery_engine.so.node.gz"
 set -gx PRISMA_SCHEMA_ENGINE_BINARY "$HOME/Projects/prisma_engines/schema-engine.gz"
 set -gx PRISMA_QUERY_ENGINE_BINARY "$HOME/Projects/prisma_engines/query-engine.gz"
