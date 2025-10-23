@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   imports = [
     # Enable &/ Configure Programs
     ./fish
@@ -75,7 +74,7 @@
     nerd-fonts.jetbrains-mono
 
     # # Import Scripts
-    (import ./../../../scripts/rofi-launcher.nix { inherit pkgs; })
+    (import ./../../../scripts/rofi-launcher.nix {inherit pkgs;})
     # (import ./../../../scripts/iommu-groups.nix {inherit pkgs;})
 
     # # You can also create simple shell scripts directly inside your

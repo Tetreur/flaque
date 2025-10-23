@@ -2,8 +2,7 @@
   inputs,
   pkgs,
   ...
-}:
-{
+}: {
   nix.settings.experimental-features = [
     "nix-command"
     "flakes"
@@ -64,7 +63,7 @@
   };
 
   # Load nvidia driver for Xorg & Wayland
-  services.xserver.videoDrivers = [ "nvidia" ];
+  services.xserver.videoDrivers = ["nvidia"];
 
   hardware = {
     nvidia = {
@@ -107,12 +106,12 @@
       "scanner"
       "lp"
     ];
-    packages = [ ];
+    packages = [];
     shell = pkgs.fish;
   };
 
   home-manager = {
-    extraSpecialArgs = { inherit inputs; };
+    extraSpecialArgs = {inherit inputs;};
     users = {
       "tet" = import ./home;
     };
@@ -245,7 +244,7 @@
   # Desktop portals
   xdg.portal = {
     enable = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+    extraPortals = [pkgs.xdg-desktop-portal-gtk];
   };
 
   environment.sessionVariables = {
