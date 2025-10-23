@@ -4,15 +4,16 @@
   };
 
   /*
-  * .
-  * ├── completions
-  * ├── conf.d
-  * │   ├── myabbrs.fish
-  * │   └── fnm.fish
-  * ├── config.fish
-  * ├── fish_variables
-  * └── functions
-  *     └── fish_prompt.fish
+    * .
+    * ├── completions
+    * ├── conf.d
+    * │   ├── myabbrs.fish
+    * │   └── fnm.fish
+    * ├── config.fish
+    * ├── fish_variables
+    * └── functions
+    *     ├── cat.fish
+    *     └── fish_prompt.fish
   */
 
   # Main config.fish
