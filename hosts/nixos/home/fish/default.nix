@@ -33,4 +33,10 @@
     source = ./fish_prompt.fish;
     enable = true;
   };
+
+  # bat -> cat
+  home.file.".config/fish/functions/cat.fish" = {
+    source = ./cat.fish;
+    enable = true;
+  };
 }
